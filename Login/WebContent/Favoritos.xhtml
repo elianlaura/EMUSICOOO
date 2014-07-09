@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/Templates/BasicTemplate.xhtml">
+    <ui:define name="content">
+        <h:form>
+         <h:panelGrid columns="2">
+        		<h:dataTable id="table1" value="#{LoginBean.name}" var="item"
+             		border="1">
+		             	 <h:column>
+		                <h:outputText value="Name"></h:outputText>
+		                <h:inputText value="#{LoginBean.name}"></h:inputText>
+		                 </h:column>
+		                <h:column>
+		                <h:outputText value="Password"></h:outputText>
+		                <h:inputSecret value="#{LoginBean.password}"></h:inputSecret>
+		                 </h:column>
+                </h:dataTable>
+        </h:panelGrid>
+            <!-- <h:commandButton value="Login" action="welcome"></h:commandButton> esto redirecciona a la pagina welcome-->
+        <h:commandButton value="Login-callFace" action="welcome"></h:commandButton>
+               
+           
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>

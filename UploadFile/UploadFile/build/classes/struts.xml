@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">  
+  
+<struts>  
+ <constant name="struts.enable.DynamicMethodInvocation" value="false" />  
+ <constant name="struts.devMode" value="true" />  
+ <!-- Add your package and namespace here -->  
+  
+ <package name="default" namespace="/" extends="struts-default">  
+  
+  
+  <!--Add your actions here -->  
+  <action name="userImage"
+    class="actions.FileUploadAction">
+    <interceptor-ref name="fileUpload">
+        <param name="maximumSize">2097152</param>
+        <param name="allowedTypes">
+            image/png,image/gif,image/jpeg,image/pjpeg
+        </param>
+    </interceptor-ref>
+    <interceptor-ref name="defaultStack"></interceptor-ref>
+    <result name="success">SuccessUserImage.jsp</result>
+    <result name="input">UserImage.jsp</result>
+</action>
+  
+  <!-- Actions end -->  
+ </package>  
+</struts>  

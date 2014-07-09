@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/Templates/BasicTemplate.xhtml">
+    <ui:define name="content">
+    	<f:event type="preRenderView" listener="#{FavoritaBean.init()}" />
+       
+        <center>
+        
+        <div style="position: absolute; right: 0; width: 100%; height:600px; overflow:auto;
+    						margin:auto;">
+        
+        <br></br>
+        <br></br>
+        <br></br>
+        
+         <h:form>
+       
+       	<h:dataTable value="#{FavoritaBean.listaColeccion}" var="o"
+    			styleClass="order-table"
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+
+ 
+ 				<h:column>  
+	                <h:commandLink action="#{FavoritaBean.listener}">  
+	                    <h:outputText value="Escuchar" />  
+	                    <f:param name="modelRow" value="#{o.identificador}" />  
+	                </h:commandLink>  
+	            </h:column>  
+	            
+	             
+	            
+	            <!--<h:commandLink  action=”#{FavoritaBean.display(o)}” value=”send”>
+                        <f:param name=”userId” value=”#{o.identificador}”/>
+                </h:commandLink>
+                 -->
+ 
+ 				<h:column  rendered="false">
+    				<!-- column header -->
+    				<f:facet name="header">Identificador</f:facet>
+    				<!-- row record -->
+    				#{o.identificador}
+    			</h:column>
+ 
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">Imagen</f:facet>
+    				<!-- row record -->
+    				#{o.pathImg}
+    			</h:column>
+    			
+    			<h:column>
+	    			<h:graphicImage width="50" height="50" 
+						id="SelectedImageId"						
+						url="/PHOTOS/#{o.identificador}.jpg">
+					</h:graphicImage>
+				</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Nombre</f:facet>
+    				#{o.nombre}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Artista</f:facet>
+    				#{o.artista}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Categoria</f:facet>
+    				#{o.categoria}
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Num reproducciones</f:facet>
+    				#{o.num_reproduccion}
+    				
+    			</h:column>
+    			
+    			
+    			
+    			<h:column>
+    				<f:facet name="header">Ultima reproduccion</f:facet>
+    				#{o.reproduccion}
+    			</h:column>
+ 
+    		</h:dataTable>
+ 		</h:form>
+ 		
+ 		</div>
+       
+       </center>
+       
+       
+        
+         
+        
+    </ui:define>
+</ui:composition>
+
+</html>
