@@ -1,8 +1,21 @@
 package Model;
 
 import java.sql.ResultSet;
+
+
+
 import java.sql.Types;
 import java.util.Vector;
+
+
+
+
+import org.hibernate.Session;  
+import org.hibernate.SessionFactory;  
+import org.hibernate.Transaction;  
+import org.hibernate.cfg.Configuration; 
+
+import BD.CancionDB;
 
 public class Cancion extends BDHandler{
 	
@@ -133,8 +146,40 @@ public class Cancion extends BDHandler{
 	
 	public void AgregarCancion(){
 		
+		
+		//con HIBERNATE
+		/*Configuration cfg=new Configuration();  
+	    cfg.configure();
+	      
+	    SessionFactory factory=cfg.buildSessionFactory();
+	    Session session=factory.openSession();  
+	      
+	    Transaction t=session.beginTransaction();  
+	          
+	    CancionDB e1=new CancionDB(this.m_nombre, this.m_letra, this.m_url,
+	    		this.m_id_artista, this.m_id_categoria, this.m_id_usuario);    	    
+	     
+	    session.persist(e1); 	      
+	    t.commit();
+	    session.close();  
+		*/
+		
+		this.m_hibernate.m_session = this.m_hibernate.m_factory.openSession();
+		this.m_hibernate.m_transaction = this.m_hibernate.m_session.beginTransaction();
+		
+		CancionDB e1=new CancionDB(this.m_nombre, this.m_letra, this.m_url,
+				this.m_id_categoria, this.m_id_artista, this.m_id_usuario);  
+		this.m_hibernate.m_session.persist(e1); 
+		
+		this.m_hibernate.m_transaction.commit();
+		this.m_hibernate.m_session.close();
+	  //HIBERNATE
+	    
+		/*
 		try{
 			 //Vector<String> data = new  Vector<String>();
+			
+			
 			int result = -1 ;
     		this.m_conn.setAutoCommit(false);
     		this.m_proc = null;
@@ -163,8 +208,8 @@ public class Cancion extends BDHandler{
 		}catch (Exception e) {
             System.err.println("El porque del cascar SQL: " + e.getMessage());
             e.printStackTrace();
-        }		
-		
+        }	
+		*/
 	}
 
 	

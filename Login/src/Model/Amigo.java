@@ -4,6 +4,9 @@ import java.sql.ResultSet;
 import java.sql.Types;
 import java.util.Vector;
 
+import BD.AmistadDB;
+import BD.SolicitudAmistadDB;
+
 public class Amigo extends BDHandler{
 	public int m_identificador;
 	public String m_nombre;
@@ -55,7 +58,7 @@ public class Amigo extends BDHandler{
 		
 	}
 	
-public void BuscarAmigos(int id, String nom){
+	public void BuscarAmigos(int id, String nom){
 		
 		try{
 			 //Vector<String> data = new  Vector<String>();
@@ -99,37 +102,48 @@ public void BuscarAmigos(int id, String nom){
 
 
 	public void AgregarAmigo(int id, int id_amigo, String mensaje){
-	
-	try{
-		 //Vector<String> data = new  Vector<String>();
-		int result = -1 ;
-		this.m_conn.setAutoCommit(false);
-		this.m_proc = null;
-		this.m_proc = m_conn.prepareCall("{ call fx_agregar_amigo (?,?,?, ?) }");
+		this.m_hibernate.m_session = this.m_hibernate.m_factory.openSession();
+		this.m_hibernate.m_transaction = this.m_hibernate.m_session.beginTransaction();
 		
+		AmistadDB e1=new AmistadDB(id, id_amigo);  
+		this.m_hibernate.m_session.persist(e1); 
 		
-		//seteamos los parametros, el primer parametro es po defecto el cursor
+		SolicitudAmistadDB s1=new SolicitudAmistadDB(id, id_amigo, mensaje);  
+		this.m_hibernate.m_session.persist(s1); 
 		
-		this.m_proc.setInt(1, id);
-		this.m_proc.setInt(2, id_amigo);
-		this.m_proc.setString(3, mensaje);
-		this.m_proc.registerOutParameter(4, Types.INTEGER); //el parametro de salida
-		
-		this.m_proc.execute();
-		
-		result = this.m_proc.getInt(4);
-		
-		    		
-		this.m_conn.commit();
-		this.m_conn.setAutoCommit(true);
-		
-		this.m_proc.close();    		    		
-		
-	}catch (Exception e) {
-        System.err.println("El porque del cascar SQL: " + e.getMessage());
-        e.printStackTrace();
-    }		
-	
-}
+		this.m_hibernate.m_transaction.commit();
+		this.m_hibernate.m_session.close();
+	/*
+		try{
+			 //Vector<String> data = new  Vector<String>();
+			int result = -1 ;
+			this.m_conn.setAutoCommit(false);
+			this.m_proc = null;
+			this.m_proc = m_conn.prepareCall("{ call fx_agregar_amigo (?,?,?, ?) }");
+			
+			
+			//seteamos los parametros, el primer parametro es po defecto el cursor
+			
+			this.m_proc.setInt(1, id);
+			this.m_proc.setInt(2, id_amigo);
+			this.m_proc.setString(3, mensaje);
+			this.m_proc.registerOutParameter(4, Types.INTEGER); //el parametro de salida
+			
+			this.m_proc.execute();
+			
+			result = this.m_proc.getInt(4);
+			
+			    		
+			this.m_conn.commit();
+			this.m_conn.setAutoCommit(true);
+			
+			this.m_proc.close();    		    		
+			
+		}catch (Exception e) {
+	        System.err.println("El porque del cascar SQL: " + e.getMessage());
+	        e.printStackTrace();
+	    }		
+	*/
+	}
 
 }

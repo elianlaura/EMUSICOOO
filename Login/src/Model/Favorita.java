@@ -4,7 +4,7 @@ package Model;
 import java.sql.ResultSet;
 import java.sql.Types;
 import java.util.Vector;
-import BackingBeans.FavoritaBean;
+//import BackingBeans.FavoritaBean;
 
 public class Favorita extends BDHandler {
 	
@@ -86,7 +86,7 @@ public void ListarFavoritas(){
 		
 	}
 
-	public Vector<FavoritaBean> ListarColeccion(int id){
+	/*public Vector<FavoritaBean> ListarColeccion(int id){
 	
 		try{
 			 //Vector<String> data = new  Vector<String>();
@@ -138,6 +138,6 @@ public void ListarFavoritas(){
 		
 		
 		
-	}
+	}*/
 
 }

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>Login</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>EMUSICOOO2</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  
   <servlet>
     <description></description>
     <display-name>CtrlLogin</display-name>
@@ -9,8 +20,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlLogin</servlet-name>
-    <url-pattern>/Login/CtrlLogin/*</url-pattern>
+    <url-pattern>/EMUSICOOO2/CtrlLogin/*</url-pattern>
+    
   </servlet-mapping>
+  
+  
   <servlet>
     <description></description>
     <display-name>CtrlRegisterUser</display-name>
@@ -19,7 +33,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlRegisterUser</servlet-name>
-    <url-pattern>/Login/CtrlRegisterUser/*</url-pattern>
+    <url-pattern>/EMUSICOOO2/CtrlRegisterUser/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -29,7 +43,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlBuscar</servlet-name>
-    <url-pattern>/Login/CtrlBuscar/*</url-pattern>
+    <url-pattern>/EMUSICOOO2/CtrlBuscar/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -39,7 +53,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlDetalleCancion</servlet-name>
-    <url-pattern>/Login/CtrlDetalleCancion/*</url-pattern>
+    <url-pattern>/EMUSICOOO2/CtrlDetalleCancion/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -49,7 +63,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlAgregarCancion</servlet-name>
-    <url-pattern>/Login/CtrlAgregarCancion/*</url-pattern>
+    <url-pattern>/EMUSICOOO2/CtrlAgregarCancion/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -59,7 +73,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlListarAmigo</servlet-name>
-    <url-pattern>/Login/CtrlListarAmigo/*</url-pattern>
+    <url-pattern>/EMUSICOOO2/CtrlListarAmigo/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -69,7 +83,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlBuscarAmigo</servlet-name>
-    <url-pattern>/Login/CtrlBuscarAmigo/*</url-pattern>
+    <url-pattern>/EMUSICOOO2/CtrlBuscarAmigo/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -79,7 +93,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlAgregarAmigo</servlet-name>
-    <url-pattern>/Login/CtrlAgregarAmigo/*</url-pattern>
+    <url-pattern>/EMUSICOOO2/CtrlAgregarAmigo/*</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -89,44 +103,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CtrlVerLetra</servlet-name>
-    <url-pattern>/Login/CtrlVerLetra/*</url-pattern>
+    <url-pattern>/EMUSICOOO2/CtrlVerLetra/*</url-pattern>
   </servlet-mapping>
-  
-  
-  <servlet>
-    <servlet-name>Faces Servlet</servlet-name>
-    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  
-  <!-- <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/faces/*</url-pattern>
-  </servlet-mapping>
-   -->
-   
-   <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/faces/*</url-pattern>
-  </servlet-mapping>
-  
-  <context-param>
-    <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
-    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-    <param-value>client</param-value>
-  </context-param>
-  <context-param>
-    <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
-    <param-value>resources.application</param-value>
-  </context-param>
-  <listener>
-    <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
-  </listener>
-  
-  
-  
-  
- 
- 
   
 </web-app>

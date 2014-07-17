@@ -9,6 +9,7 @@ public class Buscar extends BDHandler{
 		super();
 	}
 	
+	
 	public Vector<Vector<String>> Search(String cadena){
 		//Vector<String> data = new Vector<String>();
 		//data.add(cadena);

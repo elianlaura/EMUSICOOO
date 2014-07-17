@@ -10,7 +10,24 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.util.Vector;
 
+import org.hibernate.Transaction;  
+import org.hibernate.Session;  
+import org.hibernate.SessionFactory;  
+
 public class BDHandler {
+	
+	////////            HIBERNATE
+	
+	//public Transaction 		m_transaction;
+	//public Session			m_session;
+	//public SessionFactory	m_factory;
+	public BDHibernate		m_hibernate; 
+	
+	
+	///////////////////////////////    
+	
+	
+	
 	Connection m_conn = null;
 	Statement m_statement = null;
     public ResultSet m_result = null;
@@ -18,14 +35,21 @@ public class BDHandler {
     public ResultSetMetaData m_result_metada = null; 
     Vector<Vector<String>> m_data = null;
     
-    public CallableStatement m_proc = null;
-    
+    public CallableStatement m_proc = null;    
     
     BDConnection m_connection;
     
     public BDHandler(){
     	m_connection = m_connection.getInstance();
     	m_conn = m_connection.getConnection();
+    	
+    	////////HIBERNATE
+    	
+    	m_hibernate 	= BDHibernate.getInstance();
+    	//m_transaction 	= BDHibernate.getTransaction();
+    	//m_session		= BDHibernate.getSession();
+    	
+    	///////////////////////////////
     }
     
     
