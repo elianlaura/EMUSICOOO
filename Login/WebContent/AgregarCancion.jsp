@@ -147,7 +147,9 @@
 										<option value="8">Glut</option>
 										<option value="9">Rio roma</option>
 										<option value="10">Balvin</option>	
-										<option value="11">X-Dinero</option>					
+										<option value="11">X-Dinero</option>	
+										<option value="12">Showtek</option>
+										<option value="13">Penumbra</option>				
 									</select>
 	                             	<br><br>
 	                             	
@@ -159,7 +161,8 @@
 										<option value="4">Salsa</option>
 										<option value="5">Alternativo</option>
 										<option value="6">Balada</option>
-										<option value="7">Regueton</option>					
+										<option value="7">Regueton</option>	
+										<option value="8">Electro</option>					
 									</select>
 	                            
 	                            <fieldset>
