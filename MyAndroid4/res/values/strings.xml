@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EMUSICOOO</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="edit_message">Ingrese su consulta</string>
+    <string name="button_send">Buscar</string>
+    <string name="title_activity_display_message">Resultados de EMUSICOOO</string>
+
+</resources>
